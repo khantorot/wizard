@@ -1,0 +1,106 @@
+body{
+	background: #fff;
+}
+.mainContent{
+	width: 80%;
+	border-radius: 10px;
+	box-shadow: 3px 3px 15px #a3a3a3;
+	margin-left: 10%;
+	margin-top: 120px;
+	margin-bottom: 50px;
+	padding: 40px;
+}
+.mainContent h2{
+	font-size: 60px;
+	font-weight: 100;
+	text-align: center;
+	color: #00b92b;
+}
+.mainContent img{
+	width: 80%;
+	margin: 30px 10%;
+}
+.mainContent p{
+	font-size: 19px;
+	line-height: 25px;
+	margin-top: 20px;
+}
+.mainContent li{
+	font-size: 17px;
+	color: #232323;
+	margin: 5px 30px;
+}
+.mainContent a{	
+	display: block;
+	width: 220px;
+	padding: 15px 0px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: calc(50% - 110px);
+	text-align: center;
+	letter-spacing: 1px;
+	border-radius: 7px;
+	font-size: 15px;
+	border: 1px solid #a0a0a0;
+	transition: all ease 0.2s;
+}
+
+.mainContent a:hover{
+	background: #000;
+	color: #00b92b;
+	border-color: #00b92b;
+}
+
+
+@media screen and (max-width: 1000px){
+
+.mainContent{
+	width: 100%;
+	border-radius: 10px;
+	box-shadow: none;
+	margin-left: 0%;
+	margin-top: 120px;
+	margin-bottom: 50px;
+	padding: 40px;
+}
+.mainContent h2{
+	font-size: 33px;
+	font-weight: 100;
+	text-align: center;
+	color: #00b92b;
+}
+.mainContent img{
+	width: 80%;
+	margin: 30px 10%;
+}
+.mainContent p{
+	font-size: 19px;
+	line-height: 25px;
+	margin-top: 20px;
+}
+.mainContent li{
+	font-size: 15px;
+	color: #232323;
+	margin: 5px 30px;
+}
+.mainContent a{	
+	display: block;
+	width: 220px;
+	padding: 15px 0px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: calc(50% - 110px);
+	text-align: center;
+	letter-spacing: 1px;
+	border-radius: 7px;
+	font-size: 15px;
+	border: 1px solid #a0a0a0;
+	transition: all ease 0.2s;
+}
+
+.mainContent a:hover{
+	background: #000;
+	color: #00b92b;
+	border-color: #00b92b;
+}
+}
