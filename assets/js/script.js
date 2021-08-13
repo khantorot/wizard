@@ -1,21 +1,20 @@
 const body = document.querySelector('body');
 const container = document.querySelector('.container');
 const menu_btn = document.querySelector('.menu_btn');
-const side_bar = document.querySelector('.side_bar');
 const cart_btn = document.querySelector('.cart_btn');
 const profile_btn = document.querySelector('.profile_btn');
 const close_side_btn = document.querySelector('.side_bar .close_btn');
 const forgot_pass_btn = document.querySelector('.forgot_pass_btn');
 const forgot_pass_back_btn = document.querySelector('.forgot_pass_back_btn');
-const cart_bar = document.querySelector('.cart_bar');
-const login_bar = document.querySelector('.login_bar');
-const forgot_pass_bar = document.querySelector('.forgot_pass_bar');
+const side_bar = document.querySelector('.side_bar');
 const side_bars = document.querySelectorAll('.side_bar .bar');
 const modal_side = document.querySelector('.modal_side');
+const menu = document.querySelector('.menu');
 
 
 container.addEventListener('click', hideSideBar);
 close_side_btn.addEventListener('click', hideSideBar);
+menu.addEventListener('click', menuActive);
 
 
 menu_btn.addEventListener('click', function () {
@@ -36,11 +35,16 @@ forgot_pass_back_btn.addEventListener('click', function () {
 });
 
 
-function hideSideBar() {
-    side_bar.classList.remove('side_bar_show');
-    body.classList.remove('body_overflow');
-    container.classList.remove('container_hide');
+
+function hideSideBar(e) {
+    if (!e.target.classList.contains('add_btn')) {
+        side_bar.classList.remove('side_bar_show');
+        body.classList.remove('body_overflow');
+        container.classList.remove('container_hide');
+        modal_side.classList.remove('modal_side_show');
+    }
 }
+
 
 
 
@@ -59,15 +63,32 @@ function showSideBar(data) {
 }
 
 
+
+function menuActive(e) {
+    if (e.target.classList.contains('menu_item')) {
+        let group = e.target.getAttribute('data-group');
+        let producer = e.target.getAttribute('data-producer');
+
+        if (group != null && producer != null) {
+            localStorage.setItem('product_group', group);
+            localStorage.setItem('product_producer', producer);
+        }
+    }
+}
+
+
+
+
+
 const nav = document.querySelector('nav');
 let lastScrollTop = 0;
 
 window.addEventListener('scroll', function (e) {
     let scrolled = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrolled > 100) {
-        nav.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+    if (scrolled > 0) {
+        nav.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
     } else {
-        nav.style.backgroundColor = 'transparent';
+        nav.style.backgroundColor = 'rgba(255, 255, 255, 0)';
     }
     lastScrollTop = scrolled;
 })
@@ -86,7 +107,7 @@ function chekCart() {
 }
 
 
-function modalBar(id) {
+function showModalBar(id) {
     let out = '';
     const cart_modal = document.querySelector('.cart_modal');
 
@@ -110,15 +131,12 @@ function modalBar(id) {
                 out += '<div>цена: <span>' + prettyfy(data[key].price) + ' с</span></div>';
                 out += '<div>итого: <span>' + prettyfy(+data[key].price * cart[key]) + ' с</span></div>';
                 out += '</div>';
+                break;
             }
         }
     }
     cart_modal.innerHTML = out;
     modal_side.classList.add('modal_side_show');
-    modal_side.style.pointerEvents = 'auto';
-    setTimeout(function(){
-        modal_side.classList.remove('modal_side_show');
-    }, 3000)
 }
 
 
@@ -128,21 +146,20 @@ modal_side.addEventListener('click', function (e) {
     if (e.target.classList.contains('del_btn')) {
         delete cart[id];
         modal_side.classList.remove('modal_side_show');
-        modalBar();
+        showModalBar();
     } else if (e.target.classList.contains('close_btn')) {
-        modal_side.style.pointerEvents = 'none';
         modal_side.classList.remove('modal_side_show');
     } else if (e.target.classList.contains('plus_btn')) {
         cart[id]++;
-        modalBar(id);
+        showModalBar(id);
     } else if (e.target.classList.contains('minus_btn')) {
         if (cart[id] > 1) {
             cart[id]--;
-            modalBar(id);
+            showModalBar(id);
         } else {
             delete cart[id];
             modal_side.classList.remove('modal_side_show');
-            modalBar();
+            showModalBar();
         }
     } else if (e.target.classList.contains('product_name')) {
         let id = e.target.getAttribute('data-id');
@@ -189,8 +206,9 @@ function showMiniCart() {
             out += '</div>';
         }
     }
-    countGoods();
-    countPrice();
+    document.querySelector('.cart_btn_count').innerHTML = countGoods();
+    document.querySelector('.cart_count').innerHTML = 'Товаров : <span>' + countGoods() + '</span>';
+    document.querySelector('.cart_price').innerHTML = 'Итого : <span>' + prettyfy(countPrice()) + ' c</span>';
     cart_data.innerHTML = out;
 }
 
@@ -203,11 +221,9 @@ cart_data.addEventListener("click", function (e) {
         delete cart[id];
     } else if (e.target.classList.contains('plus_btn')) {
         cart[id]++;
-        modalBar(id);
     } else if (e.target.classList.contains('minus_btn')) {
         if (cart[id] > 1) {
             cart[id]--;
-            modalBar(id);
         } else {
             delete cart[id];
             modal_side.classList.remove('modal_side_show');
@@ -219,6 +235,8 @@ cart_data.addEventListener("click", function (e) {
     localStorage.setItem('cart', JSON.stringify(cart));
     showMiniCart();
 });
+
+
 
 
 
@@ -239,8 +257,7 @@ function countGoods() {
     if (sum == undefined) {
         sum = 0;
     }
-    document.querySelector('.goods_count').innerHTML = sum;
-    document.querySelector('.cart_count').innerHTML = 'Товаров : <span>' + sum + '</span>';
+    return sum;
 }
 
 
@@ -257,11 +274,29 @@ function countPrice() {
     for (var i = 0; i < arr.length; i++) {
         total += Number(arr[i]) * arr1[i];
     }
-    document.querySelector('.cart_price').innerHTML = 'Итого : <span>' + prettyfy(total) + '</span>';
+    return total
 }
 
-function prettyfy (num) {
+function prettyfy(num) {
     let n = num.toString();
     let seperator = ' ';
     return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + seperator);
 }
+
+
+
+
+
+
+let user = {};
+
+chekUser();
+function chekUser() {
+    if (localStorage.getItem('user') != null) {
+        user = JSON.parse(localStorage.getItem('user'));
+    }
+}
+
+
+
+

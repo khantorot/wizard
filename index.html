@@ -31,7 +31,7 @@
         </a>
         <div class="cart_btn">
             <img src="./content/icons/cart.svg" alt="cart">
-            <p class="goods_count"></p>
+            <p class="cart_btn_count"></p>
         </div>
         <div class="profile_btn">
             <img src="./content/icons/profile.svg" alt="profile">
@@ -46,40 +46,63 @@
                 <div class="menu_container">
                     <div class="menu">
                         <ul>
-                            <li><a href="./index.html">Главная</a></li>
-                            <li><a href="./about.html">О нас</a></li>
-                            <li><a href="./contact.html">Контакты</a></li>
-                            <li><a href="./products.html">Товары</a></li>
+                            <li><a href="./index.html" class="menu_item">Главная</a></li>
+                            <li><a href="./about.html" class="menu_item">О нас</a></li>
+                            <li><a href="./contact.html" class="menu_item">Контакты</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="all"
+                                    data-producer="all">Товары</a></li>
                         </ul>
                         <ul>
-                            <li><a href="./products.html" data-group="popular">Популярное</a></li>
-                            <li><a href="./products.html" data-group="discount">Акции</a></li>
-                            <li><a href="./products.html" data-group="new">Новинки</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="popular"
+                                    data-producer="all">Популярное</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="discount"
+                                    data-producer="all">Акции</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="new"
+                                    data-producer="all">Новинки</a></li>
                         </ul>
-                        <ul class="menu_products">
-                            <li><a href="./products.html" data-group="notebook">Ноутбуки от</a></li>
-                            <li><a href="./products.html" data-group="notebook apple">Apple</a></li>
-                            <li><a href="./products.html" data-group="notebook xiaomi">Xiaomi</a></li>
-                            <li><a href="./products.html" data-group="notebook acer">Acer</a></li>
-                            <li><a href="./products.html" data-group="notebook lenovo">Lenovo</a></li>
-                            <li><a href="./products.html" data-group="notebook hp">HP</a></li>
+                        <ul>
+                            <li><a href="./products.html" class="menu_item menu_item_group" data-group="notebook"
+                                    data-producer="all">Ноутбуки</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="notebook"
+                                    data-producer="apple">Apple</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="notebook"
+                                    data-producer="xiaomi">Xiaomi</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="notebook"
+                                    data-producer="acer">Acer</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="notebook"
+                                    data-producer="lenovo">Lenovo</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="notebook"
+                                    data-producer="hp">HP</a></li>
                         </ul>
-                        <ul class="menu_products">
-                            <li><a href="./products.html" data-group="phone">Телефоны от</a></li>
-                            <li><a href="./products.html" data-group="phone apple">Apple</a></li>
-                            <li><a href="./products.html" data-group="phone samsung">Samsung</a></li>
-                            <li><a href="./products.html" data-group="phone xiaomi">Xiaomi</a></li>
-                            <li><a href="./products.html" data-group="phone huawei">Huawei</a></li>
-                            <li><a href="./products.html" data-group="phone nokia">Nokia</a></li>
+                        <ul>
+                            <li><a href="./products.html" class="menu_item menu_item_group" data-group="phone"
+                                    data-producer="all">Телефоны</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="phone"
+                                    data-producer="apple">Apple</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="phone"
+                                    data-producer="samsung">Samsung</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="phone"
+                                    data-producer="xiaomi">Xiaomi</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="phone"
+                                    data-producer="huawei">Huawei</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="phone"
+                                    data-producer="nokia">Nokia</a></li>
                         </ul>
-                        <ul class="menu_products">
-                            <li><a href="./products.html" data-group="headphones">Наушники от</a></li>
-                            <li><a href="./products.html" data-group="headphones jbl">JBL</a></li>
-                            <li><a href="./products.html" data-group="headphones apple">Apple</a></li>
-                            <li><a href="./products.html" data-group="headphones sony">Sony</a></li>
-                            <li><a href="./products.html" data-group="headphones beats">Beats</a></li>
-                            <li><a href="./products.html" data-group="headphones sennheiser">Sennheiser</a></li>
-                            <li><a href="./products.html" data-group="headphones grado">Grado</a></li>
+                        <ul>
+                            <li><a href="./products.html" class="menu_item menu_item_group" data-group="headphones"
+                                    data-producer="all">Наушники</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="headphones"
+                                    data-producer="jbl">JBL</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="headphones"
+                                    data-producer="apple">Apple</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="headphones"
+                                    data-producer="sony">Sony</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="headphones"
+                                    data-producer="beats">Beats</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="headphones"
+                                    data-producer="sennheiser">Sennheiser</a></li>
+                            <li><a href="./products.html" class="menu_item" data-group="headphones"
+                                    data-producer="grado">Grado</a></li>
                         </ul>
                     </div>
                 </div>
@@ -133,10 +156,62 @@
             </div>
         </div>
     </nav>
+
     <div class="container">
-        <header></header>
-        <section>
+        <header>
+            <div class="header_text">
+                <h1><span>Wizard</span> Computers</h1>
+            </div>
+            <video src="./content/video/video.mp4" loop muted autoplay></video>
+        </header>
+        <section class="products_section">
+            <div class="filter">
+                <div class="filter_items">
+                    <div class="filter_item" data-group="all">Все</div>
+                    <div class="filter_item" data-group="popular">Популярное</div>
+                    <div class="filter_item" data-group="discount">Акции</div>
+                    <div class="filter_item" data-group="new">Новинки</div>
+                    <div class="filter_item" data-group="notebook">Ноутбуки</div>
+                    <div class="filter_item" data-group="phone">Телефоны</div>
+                    <div class="filter_item" data-group="headphones">Наушники</div>
+                </div>
+                <select class="filter_select">
+                    <option value="all">Все</option>
+                    <option value="apple">apple</option>
+                    <option value="xiaomi">xiaomi</option>
+                    <option value="samsung">samsung</option>
+                    <option value="acer">acer</option>
+                    <option value="lenovo">lenovo</option>
+                    <option value="hp">hp</option>
+                    <option value="huawei">huawei</option>
+                    <option value="nokia">nokia</option>
+                    <option value="jbl">jbl</option>
+                    <option value="sony">sony</option>
+                    <option value="beats">beats</option>
+                    <option value="sennheiser">sennheiser</option>
+                    <option value="grado">grado</option>
+                </select>
+                <input type="text" class="search" placeholder="Поиск" autocomplete="off">
+            </div>
             <div class="products"></div>
+        </section>
+        <section>
+            <div class="about_container">
+                <div class="text_block">
+                    <h2>Wizard Computers - это мы</h2>
+                    <p>Компания «Wizard Computers» основана в 2012 году и является надежным поставщиком всего спектра IT
+                        оборудования для корпоративного сектора и частных клиентов. Основной деятельностью компании являются
+                        поставки компьютерной техники, серверного, сетевого и периферийного оборудования, лицензионного
+                        программного обеспечения, а также расходных материалов. </p>
+                    <p>По большинству предлагаемые оборудования, является официальным партнером производителей. Прямые
+                        закупки обеспечивают низкую стоимость оборудования и оперативную поставку товара в любой населенный
+                        пункт Кыргызстана.</p>
+                    <a href="./about.html">Больше о нас</a>
+                </div>
+                <div class="image_block">
+                    <img src="./content/images/about.png" alt="about">
+                </div>
+            </div>
         </section>
         <footer>
             <div class="footer_container">
@@ -157,10 +232,10 @@
                     </ul>
                     <ul>
                         <h4>Товары</h4>
-                        <li><a href="./products.html">Все товары</a></li>
-                        <li><a href="./products.html" data-group="notebook">Ноутбуки</a></li>
-                        <li><a href="./products.html" data-group="phone">Телефоны</a></li>
-                        <li><a href="./products.html" data-group="headphones">Наушники</a></li>
+                        <li><a href="./products.html" data-group="all" data-producer="all">Все товары</a></li>
+                        <li><a href="./products.html" data-group="notebook" data-producer="all">Ноутбуки</a></li>
+                        <li><a href="./products.html" data-group="phone" data-producer="all">Телефоны</a></li>
+                        <li><a href="./products.html" data-group="headphones" data-producer="all">Наушники</a></li>
                     </ul>
                 </div>
                 <div class="call_back">
